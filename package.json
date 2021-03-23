@@ -1,0 +1,32 @@
+{
+  "name": "aframe-3dmodel-viewer",
+  "version": "1.0.0",
+  "description": "This project helps in situations where you need to quickly place gltf model in aframe scene",
+  "main": "src/js/app.js",
+  "scripts": {
+    "test": "node server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SnagiX/aframe-3dmodel-viewer.git"
+  },
+  "keywords": [
+    "aframe",
+    "gltf",
+    "3d",
+    "model"
+  ],
+  "author": "SnagiX",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SnagiX/aframe-3dmodel-viewer/issues"
+  },
+  "homepage": "https://github.com/SnagiX/aframe-3dmodel-viewer#readme",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "express": "^4.17.1",
+    "pug": "^3.0.2",
+    "webpack": "^5.27.2",
+    "webpack-cli": "^4.5.0"
+  }
+}

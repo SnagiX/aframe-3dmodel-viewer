@@ -1,0 +1,22 @@
+{
+    "hostname": "127.0.0.1",
+    "port": 36364,
+    "folders": {
+        "models": "/models/",
+        "pages": "/pages/"
+    },
+    "scene": {
+        "VR": {
+            "render": {
+                "antialias": true,
+                "physicallyCorrectLights": true,
+                "highRefreshRate": true,
+                "foveationLevel": 3
+            },
+            "_array": [
+                "fog",
+                "physics"
+            ]
+        }
+    }
+}
