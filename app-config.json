@@ -1,22 +1,20 @@
 {
     "hostname": "127.0.0.1",
     "port": 36364,
+    "ext": [".gltf", ".glb"],
     "folders": {
         "models": "/models/",
         "pages": "/pages/"
     },
     "scene": {
         "VR": {
-            "render": {
-                "antialias": true,
-                "physicallyCorrectLights": true,
-                "highRefreshRate": true,
-                "foveationLevel": 3
-            },
-            "_array": [
-                "fog",
-                "physics"
-            ]
+            "render": "antialias: true; physicallyCorrectLights: true; highRefreshRate: true; foveationLevel: 3; ",
+            "fog": true,
+            "physics": true,
+            "timeout": 5000
         }
+    },
+    "animations": {
+        "animation__rotation": "property: rotation; easing: linear; to: 0 359 0; loop: true; dur: 9000"
     }
 }

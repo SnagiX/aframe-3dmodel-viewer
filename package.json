@@ -12,7 +12,9 @@
   },
   "keywords": [
     "aframe",
+    "view",
     "gltf",
+    "glb",
     "3d",
     "model"
   ],
@@ -23,9 +25,15 @@
   },
   "homepage": "https://github.com/SnagiX/aframe-3dmodel-viewer#readme",
   "dependencies": {
-    "chalk": "^4.1.0",
     "express": "^4.17.1",
-    "pug": "^3.0.2",
+    "fs-extra": "^9.1.0",
+    "gltf-import-export": "^1.0.18",
+    "gltf-pipeline": "^3.0.2",
+    "openssl-self-signed-certificate": "^1.1.6",
+    "pug": "^3.0.2"
+  },
+  "devDependencies": {
+    "chalk": "^4.1.0",
     "webpack": "^5.27.2",
     "webpack-cli": "^4.5.0"
   }
