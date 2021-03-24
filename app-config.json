@@ -8,7 +8,7 @@
     },
     "scene": {
         "VR": {
-            "render": "antialias: true; physicallyCorrectLights: true; highRefreshRate: true; foveationLevel: 3; ",
+            "render": "antialias: true; foveationLevel: 1; highRefreshRate: true; physicallyCorrectLights: true; highRefreshRate: true; foveationLevel: 3; ",
             "fog": true,
             "physics": true,
             "timeout": 5000

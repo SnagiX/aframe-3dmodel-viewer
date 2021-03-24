@@ -11,6 +11,9 @@ html(lang="en")
         //- AFRAME
         <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
 
+        //- AFRAME EXTRAS
+        <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+
         //- haptics for aframe
         script(src='https://unpkg.com/aframe-haptics-component/dist/aframe-haptics-component.min.js')
 
@@ -29,7 +32,7 @@ html(lang="en")
                     a-asset-item(id=key+"_"+model.title, src="/"+model.local)
 
             //- PLAYER
-            a-entity#vr-camera-wrapper(kinematic-body='' position='0 0 0')
+            a-entity#vr-camera-wrapper(kinematic-body='' rotation="" position='3 0 3')
                 a-camera#vr-camera
                 a-entity#vr-controllers-wrapper
                     a-entity(laser-controls='hand: left' oculus-touch-controls='hand: left' raycaster='objects: .vr-link; far: 100' haptics='events: raycaster-intersection; dur: 70; force: 0.4' vr-controller='')
@@ -51,7 +54,8 @@ html(lang="en")
                         a-gltf-model(
                             class="vr-link",
                             src="#"+key+"_"+val.title,
-                            autoscale="5"
+                            autoscale="5",
+                            animation-mixer
                             )&attributes(animations)
                         a-entity(
                             position="0 2.5 2.5",
