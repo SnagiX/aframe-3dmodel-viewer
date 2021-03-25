@@ -18,7 +18,7 @@
         "text": {
             "font": "https://cdn.aframe.io/fonts/DejaVu-sdf.fnt"
         },
-        "animations": {
+        "models": {
             "animation__rotation": "property: rotation; easing: linear; to: 0 359 0; loop: true; dur: 9000"
         }
     }
