@@ -18,11 +18,7 @@ function qSelect(s = []) {
     return prepared;
 }
 
-function rotatePoint(params) {
-    
-}
-
-/* EVENTS */
+/* AFRAME COMPONENTS */
 
 // AUTOSCALE (FOR MODELS)
 
