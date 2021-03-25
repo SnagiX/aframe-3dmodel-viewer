@@ -17,14 +17,13 @@ html(lang="en")
         //- haptics for aframe
         script(src='https://unpkg.com/aframe-haptics-component/dist/aframe-haptics-component.min.js')
 
-
         //- STYLESHEET
         link(rel="stylesheet", href="dist/css/build.css" type="text/css")
 
         //- APP
         <script src="dist/js/build.bundle.js"></script>
     body
-        a-scene&attributes(scene)
+        a-scene&attributes(aframe.scene.VR)
 
             //- UPLOAD ALL ASSETS FROM "MODELS" FOLDER
             a-assets 
@@ -56,7 +55,7 @@ html(lang="en")
                             src="#"+key+"_"+val.title,
                             autoscale="5",
                             animation-mixer
-                            )&attributes(animations)
+                            )&attributes(aframe.animations)
                         a-entity(
                             position="0 2.5 2.5",
                             rotation="25 0 0"
@@ -66,13 +65,16 @@ html(lang="en")
                                 width="6",
                                 align="center",
                                 position="0 0.5 0"
+                                font=aframe.text.font
                             )
                             a-text(
                                 value=`SIZE (KB): ${Math.round((val.size / (1024)) * 100) / 100}`,
                                 width="5",
                                 align="center",
                                 position="0 0 0"
+                                font=aframe.text.font
                             )
                     - pos_offset.x += 5
 
-                //- CREDENTIALS
+                //- CREDENTIALS (soon)
+            

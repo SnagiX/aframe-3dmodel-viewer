@@ -35,9 +35,8 @@ app.use("/cache", express.static('cache'));
 
 app.get('/', (req, res) => {
     res.render(process.cwd() + conf.folders.pages + 'index', {
-        scene: conf.scene.VR,
-        models: models,
-        animations: conf.animations
+        aframe: conf.aframe,
+        models: models
     });
 });
 
