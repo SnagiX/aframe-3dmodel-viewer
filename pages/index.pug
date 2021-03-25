@@ -28,7 +28,9 @@ html(lang="en")
             //- UPLOAD ALL ASSETS FROM "MODELS" FOLDER
             a-assets 
                 each model, key in models
-                    a-asset-item(id=key+"_"+model.title, src="/"+model.local)
+                    case model.ext 
+                        default
+                            a-asset-item(id=key+"_"+model.title, src="/"+model.local)
 
             //- PLAYER
             a-entity#vr-camera-wrapper(kinematic-body='' rotation="" position='3 0 3')
@@ -50,12 +52,16 @@ html(lang="en")
                     a-entity(position=pos_offset.x+" "+(pos_offset.y - 2)+" "+pos_offset.z)
                         a-cylinder(color='grey' height='0.2' radius='1.5')
                     a-entity(position=pos_offset.x+" "+pos_offset.y+" "+pos_offset.z)
-                        a-gltf-model(
-                            class="vr-link",
-                            src="#"+key+"_"+val.title,
-                            autoscale="5",
-                            animation-mixer
-                            )&attributes(aframe.animations)
+                        
+                        case val.ext
+                            default
+                                a-gltf-model(
+                                    class="vr-link",
+                                    src="#"+key+"_"+val.title,
+                                    autoscale="5",
+                                    animation-mixer
+                                )&attributes(aframe.animations)
+
                         a-entity(
                             position="0 2.5 2.5",
                             rotation="25 0 0"
@@ -77,4 +83,3 @@ html(lang="en")
                     - pos_offset.x += 5
 
                 //- CREDENTIALS (soon)
-            

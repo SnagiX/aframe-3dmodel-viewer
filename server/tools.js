@@ -40,7 +40,14 @@ module.exports = {
                 module.exports.findInDir(filename,filter,res); //recurse
             }
             else if (filename.indexOf(filter)>=0) {
-                res.push({"title": path.parse(path.basename(filename)).name, "path": filename, "size": fs.statSync(filename).size, "local": path.relative(process.cwd(), filename), "filename": path.basename(filename)})
+                res.push({
+                    "title": path.parse(path.basename(filename)).name, 
+                    "path": filename, 
+                    "size": fs.statSync(filename).size, 
+                    "local": path.relative(process.cwd(), filename), 
+                    "filename": path.basename(filename),
+                    "ext": path.parse(path.basename(filename)).ext.substring(1)
+                })
                 console.log(chalk.blueBright('|FILE FOUND|',path.relative(process.cwd(), filename)));
             };
         };

@@ -32,6 +32,7 @@ app.set('view engine', 'pug');
 app.use("/dist", express.static('dist'));
 app.use("/models", express.static('models'));
 app.use("/cache", express.static('cache'));
+app.use("/node_modules", express.static('node_modules'));
 
 app.get('/', (req, res) => {
     res.render(process.cwd() + conf.folders.pages + 'index', {
