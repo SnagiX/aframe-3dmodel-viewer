@@ -79,10 +79,17 @@ module.exports = {
                 });
                 break;
             case "change":
-                
+                    
                 break;
             case "unlink":
-                
+                for (const i in models) {
+                    if (object.hasOwnProperty(i)) {
+                        let el = models[i];
+                        if (el.local == input.local) {
+                            delete models[i];
+                        }
+                    }
+                }
                 break;
         }
         console.log(input);
