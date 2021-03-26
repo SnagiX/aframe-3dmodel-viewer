@@ -16,7 +16,9 @@ const log = console.log;
 
 const conf = JSON.parse(fs.readFileSync(process.cwd() + '/app-config.json'));
 
-var models = tools.arrayOfModels(conf);
+var models = [];
+
+// var models = tools.arrayOfModels(conf);
 
 
 // PREPARING MODEL CACHE
@@ -55,7 +57,9 @@ app.listen(conf.port, () => {
 // fs.watch(process.cwd() + conf.folders.models, function(eventType, filename) {
 //     if (eventType == "rename")
 // });
-
-// chokidar.watch('.'+conf.folders.models).on('all', (event, path) => {
-//     console.log(event, path);
-// });
+log(chalk.yellowBright("Creating array of models"));
+chokidar.watch('.'+conf.folders.models).on('all', (event, path) => {
+    // console.log(event, path);
+    models = tools.updateModels(conf, {event, path}, models);
+    console.log(models)
+});

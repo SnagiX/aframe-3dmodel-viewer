@@ -60,5 +60,31 @@ module.exports = {
             Array.prototype.push.apply(res, module.exports.findInDir(__dirname + "/.."+conf.folders.models, extension));
         });
         return res;
+    },
+
+    // UPDATE EDITS IN MODELS FOLDER
+
+    updateModels: (conf, input, models = []) => {
+        switch (input.event) {
+            case "add":
+                let filename = path.basename(input.path);
+
+                models.push({
+                    "title": path.parse(filename).name,
+                    "path": process.cwd() + "/" + input.path,
+                    "size": fs.statSync(process.cwd() + "/" + input.path).size, 
+                    "local": input.path,
+                    "filename": filename,
+                    "ext": path.parse(filename).ext.substring(1)
+                });
+                break;
+            case "unlink":
+                
+                let filename = path.basename(input.path);
+                
+                break;
+        }
+        console.log(input);
+        return models;
     }
 }
