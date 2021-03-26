@@ -5,8 +5,6 @@ const fs = require('fs'),
     crypto = require('crypto'),
     fsExtra = require('fs-extra'),
     gltf_import_export = require("gltf-import-export");
-const { type } = require('os');
-const { callbackify } = require('util');
 
 module.exports = {
 
@@ -28,7 +26,7 @@ module.exports = {
     findInDir: (startPath,filter,res = []) => {
         //console.log('Starting from dir '+startPath+'/');
         if (!fs.existsSync(startPath)) {
-            console.log(chalk.redBright("|ERR|",startPath));
+            console.log(chalk.redBright("|ERR| Folder doesn't exist -> ",startPath));
             return;
         }
     
