@@ -67,20 +67,21 @@ module.exports = {
     updateModels: (conf, input, models = []) => {
         switch (input.event) {
             case "add":
-                let filename = path.basename(input.path);
+                let file = path.basename(input.path);
 
                 models.push({
-                    "title": path.parse(filename).name,
+                    "title": path.parse(file).name,
                     "path": process.cwd() + "/" + input.path,
                     "size": fs.statSync(process.cwd() + "/" + input.path).size, 
                     "local": input.path,
-                    "filename": filename,
-                    "ext": path.parse(filename).ext.substring(1)
+                    "filename": file,
+                    "ext": path.parse(file).ext.substring(1)
                 });
                 break;
-            case "unlink":
+            case "change":
                 
-                let filename = path.basename(input.path);
+                break;
+            case "unlink":
                 
                 break;
         }

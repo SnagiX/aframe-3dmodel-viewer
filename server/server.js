@@ -57,9 +57,10 @@ app.listen(conf.port, () => {
 // fs.watch(process.cwd() + conf.folders.models, function(eventType, filename) {
 //     if (eventType == "rename")
 // });
+log(models);
 log(chalk.yellowBright("Creating array of models"));
 chokidar.watch('.'+conf.folders.models).on('all', (event, path) => {
     // console.log(event, path);
     models = tools.updateModels(conf, {event, path}, models);
-    console.log(models)
+    console.log(models);
 });
