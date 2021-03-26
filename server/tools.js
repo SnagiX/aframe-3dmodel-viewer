@@ -52,5 +52,15 @@ module.exports = {
             };
         };
         return res;
+    },
+
+    // CREATE ARRAY OF MODELS
+
+    arrayOfModels: (conf) => {
+        var res = [];
+        conf.ext.forEach(extension => {
+            Array.prototype.push.apply(res, module.exports.findInDir(__dirname + "/.."+conf.folders.models, extension));
+        });
+        return res;
     }
 }

@@ -7,6 +7,7 @@ const fs = require('fs'),
     chalk = require('chalk'),
     pug = require('pug'),
     express = require('express'),
+    chokidar = require('chokidar'),
     openssl_self_signed_certificate = require('openssl-self-signed-certificate');
 
 const tools = require("./tools");
@@ -15,10 +16,8 @@ const log = console.log;
 
 const conf = JSON.parse(fs.readFileSync(process.cwd() + '/app-config.json'));
 
-var models = [];
-conf.ext.forEach(extension => {
-    Array.prototype.push.apply(models, tools.findInDir(__dirname + "/.."+conf.folders.models, extension));
-});
+var models = tools.arrayOfModels(conf);
+
 
 // PREPARING MODEL CACHE
 
@@ -51,3 +50,12 @@ app.listen(conf.port, () => {
     log(chalk.greenBright(`  -> HTTPS enabled at https://${conf.hostname}:${conf.port + 1}/`));
 });
 
+// LISTEN /MODELS/ FOLDER
+
+// fs.watch(process.cwd() + conf.folders.models, function(eventType, filename) {
+//     if (eventType == "rename")
+// });
+
+// chokidar.watch('.'+conf.folders.models).on('all', (event, path) => {
+//     console.log(event, path);
+// });
