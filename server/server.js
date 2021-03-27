@@ -43,24 +43,17 @@ app.get('/', (req, res) => {
 });
 
 app.listen(conf.port, () => {
-    log(chalk.greenBright(`Server running at http://${conf.hostname}:${conf.port}/`));
+    log(chalk.greenBright(`|SERVER| Server running at http://${conf.hostname}:${conf.port}/`));
 
     https.createServer({
         key: openssl_self_signed_certificate.key,
         cert: openssl_self_signed_certificate.cert
     }, app).listen(conf.port + 1);
-    log(chalk.greenBright(`  -> HTTPS enabled at https://${conf.hostname}:${conf.port + 1}/`));
+    log(chalk.greenBright(`|SERVER| HTTPS enabled at https://${conf.hostname}:${conf.port + 1}/`));
 });
 
 // LISTEN /MODELS/ FOLDER
 
-// fs.watch(process.cwd() + conf.folders.models, function(eventType, filename) {
-//     if (eventType == "rename")
-// });
-log(models);
-log(chalk.yellowBright("Creating array of models"));
 chokidar.watch('.'+conf.folders.models).on('all', (event, path) => {
-    // console.log(event, path);
     models = tools.updateModels(conf, {event, path}, models);
-    console.log(models);
 });
