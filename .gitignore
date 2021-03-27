@@ -1,1 +1,6 @@
 /node_modules/
+
+# Ignore all models in this project
+/models/*
+# Exception for demo.gltf of course
+!/models/demo.gltf
