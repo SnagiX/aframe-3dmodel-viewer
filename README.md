@@ -38,6 +38,7 @@ Something mightn't work on other devices, so create an issue or make a commit in
 
 - WebAR support
 - Full VR support
+- Connect aframe-super-hands-component
 
 ## License
 

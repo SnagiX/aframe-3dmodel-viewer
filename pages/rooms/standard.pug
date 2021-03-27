@@ -1,27 +1,8 @@
 doctype html
 html(lang="en")
     head
-        meta(charset="UTF-8")
-        meta(http-equiv="X-UA-Compatible", content="IE=edge")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
-
-        //- SEO
-        title aframe 3dmodel viewer
-
-        //- AFRAME
-        script(src="https://aframe.io/releases/1.2.0/aframe.min.js")
-    
-            //- LIBS OF AFRAME
-            //- AFRAME EXTRAS
-            script(src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js") 
-            //- haptics for oculus controllers
-            script(src='https://unpkg.com/aframe-haptics-component/dist/aframe-haptics-component.min.js')
-
-        //- STYLESHEET
-        link(rel="stylesheet", href="dist/css/build.css" type="text/css")
-
-        //- APP
-        script(src="dist/js/build.bundle.js")
+        include ../head/aframe_vr
+        include ../head/head
 
     body
         a-scene&attributes(add.conf.a_scene)
