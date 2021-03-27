@@ -40,7 +40,7 @@ module.exports = {
             default:
                 return models;
         }
-        console.log(chalk.cyanBright(`|MODELS| Model ${input.event} -> ${input.path}`));
+        console.log(chalk.cyanBright(`|MODELS| Model ${input.event}ed -> ${input.path}`));
         return models.filter(el => {
             return el != null;
         });

@@ -20,6 +20,9 @@
         },
         "models": {
             "animation__rotation": "property: rotation; easing: linear; to: 0 359 0; loop: true; dur: 9000"
+        },
+        "sky": {
+            "material": "color: #fcd6ff"
         }
     }
 }
