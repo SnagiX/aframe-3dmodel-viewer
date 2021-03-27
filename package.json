@@ -31,10 +31,10 @@
     "gltf-import-export": "^1.0.18",
     "gltf-pipeline": "^3.0.2",
     "openssl-self-signed-certificate": "^1.1.6",
+    "chalk": "^4.1.0",
     "pug": "^3.0.2"
   },
   "devDependencies": {
-    "chalk": "^4.1.0",
     "webpack": "^5.27.2",
     "webpack-cli": "^4.5.0"
   }
