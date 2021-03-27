@@ -1,6 +1,6 @@
 {
   "name": "aframe-3dmodel-viewer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This project helps in situations where you need to quickly place gltf model in aframe scene",
   "main": "src/js/app.js",
   "scripts": {
