@@ -44,7 +44,7 @@ html(lang="en")
 
             //- ENV
 
-            a-sky(material="color: #fcd6ff")
+            a-sky&attributes(add.conf.a_sky)
 
             - var pos_offset = {"x": 3, "y": 1, "z": 0}
 
@@ -82,5 +82,3 @@ html(lang="en")
                                 font=add.conf.a_text.font
                             )
                     - pos_offset.x += 5
-
-                //- CREDENTIALS (soon)
