@@ -21,14 +21,14 @@ html(lang="en")
         link(rel="stylesheet", href="dist/css/build.css" type="text/css")
 
         //- APP
-        script(src="dist/js/build.bundle.js") 
+        script(src="dist/js/build.bundle.js")
 
     body
-        a-scene&attributes(aframe.scene.VR)
+        a-scene&attributes(add.conf.a_scene)
 
             //- UPLOAD ALL ASSETS FROM "MODELS" FOLDER
             a-assets 
-                each model, key in models
+                each model, key in add.models
                     case model.ext
                         default
                             a-asset-item(id=key+"_"+model.title, src="/"+model.local)
@@ -49,7 +49,7 @@ html(lang="en")
             - var pos_offset = {"x": 3, "y": 1, "z": 0}
 
             a-entity(rotation="0 90 0" position="-3 0 0")
-                each val, key in models
+                each val, key in add.models
                     a-entity(position=pos_offset.x+" "+(pos_offset.y - 2)+" "+pos_offset.z)
                         a-cylinder(color='grey' height='0.2' radius='1.5')
                     a-entity(position=pos_offset.x+" "+pos_offset.y+" "+pos_offset.z)
@@ -61,7 +61,7 @@ html(lang="en")
                                     src="#"+key+"_"+val.title,
                                     autoscale="5",
                                     animation-mixer
-                                )&attributes(aframe.models)
+                                )&attributes(add.conf.models)
 
                         a-entity(
                             position="0 2.5 2.5",
@@ -72,14 +72,14 @@ html(lang="en")
                                 width="6",
                                 align="center",
                                 position="0 0.5 0"
-                                font=aframe.text.font
+                                font=add.conf.a_text.font
                             )
                             a-text(
                                 value=`SIZE (KB): ${Math.round((val.size / (1024)) * 100) / 100}`,
                                 width="5",
                                 align="center",
                                 position="0 0 0"
-                                font=aframe.text.font
+                                font=add.conf.a_text.font
                             )
                     - pos_offset.x += 5
 

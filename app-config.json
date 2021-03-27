@@ -7,23 +7,23 @@
         "models": "/models/",
         "pages": "/pages/"
     },
-    "aframe": {
-        "scene": {
-            "VR": {
+    "rooms": {
+        "standard": {
+            "a_scene": {
                 "render": "antialias: true; foveationLevel: 1; highRefreshRate: true; physicallyCorrectLights: true; highRefreshRate: true; foveationLevel: 3; ",
                 "fog": true,
                 "physics": true,
                 "timeout": 5000
+            },
+            "a_text": {
+                "font": "https://cdn.aframe.io/fonts/DejaVu-sdf.fnt"
+            },
+            "a_sky": {
+                "material": "color: #fcd6ff"
+            },
+            "models": {
+                "animation__rotation": "property: rotation; easing: linear; to: 0 359 0; loop: true; dur: 9000"
             }
-        },
-        "text": {
-            "font": "https://cdn.aframe.io/fonts/DejaVu-sdf.fnt"
-        },
-        "models": {
-            "animation__rotation": "property: rotation; easing: linear; to: 0 359 0; loop: true; dur: 9000"
-        },
-        "sky": {
-            "material": "color: #fcd6ff"
         }
     }
 }

@@ -28,14 +28,17 @@ app.use("/models", express.static('models'));
 app.use("/cache", express.static('cache'));
 app.use("/node_modules", express.static('node_modules'));
 
-app.get('/:room', (req, res) => {
+app.get('/rooms/:room', (req, res) => {
     res.render(process.cwd() + conf.folders.pages + 'rooms/' + req.params.room, {
-        aframe: conf.aframe,
-        models: models
+        // export all variables here (to avoid conflicts in .pug files)
+        add: {
+            conf: conf.rooms[req.params.room],
+            models: models
+        }
     });
 });
 app.get('/', (req, res) => {
-    res.redirect(`/${conf.defaultRoom}`);
+    res.redirect(`/rooms/${conf.defaultRoom}`);
 });
 
 app.listen(conf.port, () => {
