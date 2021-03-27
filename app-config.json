@@ -2,6 +2,7 @@
     "hostname": "127.0.0.1",
     "port": 36364,
     "ext": [".gltf", ".glb"],
+    "defaultRoom": "standard",
     "folders": {
         "models": "/models/",
         "pages": "/pages/"

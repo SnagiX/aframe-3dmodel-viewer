@@ -18,13 +18,6 @@ const conf = JSON.parse(fs.readFileSync(process.cwd() + '/app-config.json'));
 
 var models = [];
 
-// var models = tools.arrayOfModels(conf);
-
-
-// PREPARING MODEL CACHE
-
-// console.log(models);
-
 // CREATE SERVER
 
 const app = express();
@@ -35,11 +28,14 @@ app.use("/models", express.static('models'));
 app.use("/cache", express.static('cache'));
 app.use("/node_modules", express.static('node_modules'));
 
-app.get('/', (req, res) => {
-    res.render(process.cwd() + conf.folders.pages + 'index', {
+app.get('/:room', (req, res) => {
+    res.render(process.cwd() + conf.folders.pages + 'rooms/' + req.params.room, {
         aframe: conf.aframe,
         models: models
     });
+});
+app.get('/', (req, res) => {
+    res.redirect(`/${conf.defaultRoom}`);
 });
 
 app.listen(conf.port, () => {
