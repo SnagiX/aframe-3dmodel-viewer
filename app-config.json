@@ -8,7 +8,7 @@
         "pages": "/pages/"
     },
     "pug": {
-        "debugErrors": true
+        "debugErrors": false
     },
     "rooms": {
         "standard": {
