@@ -12,18 +12,9 @@ const fs = require('fs'),
 
 const tools = require("./tools");
 
-const log = console.log;
-
 const conf = JSON.parse(fs.readFileSync(process.cwd() + '/app-config.json'));
 
 var models = [];
-
-// var models = tools.arrayOfModels(conf);
-
-
-// PREPARING MODEL CACHE
-
-// console.log(models);
 
 // CREATE SERVER
 
@@ -35,21 +26,36 @@ app.use("/models", express.static('models'));
 app.use("/cache", express.static('cache'));
 app.use("/node_modules", express.static('node_modules'));
 
-app.get('/', (req, res) => {
-    res.render(process.cwd() + conf.folders.pages + 'index', {
-        aframe: conf.aframe,
-        models: models
+app.get('/rooms/:room', (req, res) => {
+    let user = {
+        ip: req.headers['x-forwarded-for'] || req.connection.remoteAddress
+    };
+    res.render(process.cwd() + conf.folders.pages + 'rooms/' + req.params.room, {
+        // export all variables here (to avoid conflicts in .pug files)
+        add: {
+            conf: conf.rooms[req.params.room],
+            models: models
+        }
+    }, (err, out) => {
+        if (err != null) {
+            out = "This room doesn't exist or check pug's compile errors";
+            if (conf.pug.debugErrors == true) console.log(chalk.redBright(`|ROUTER - ${user.ip}| `+err));
+        }
+        res.send(out);
     });
+});
+app.get('/', (req, res) => {
+    res.redirect(`/rooms/${conf.defaultRoom}`);
 });
 
 app.listen(conf.port, () => {
-    log(chalk.greenBright(`|SERVER| Server running at http://${conf.hostname}:${conf.port}/`));
+    console.log(chalk.greenBright(`|SERVER| Server running at http://${conf.hostname}:${conf.port}/`));
 
     https.createServer({
         key: openssl_self_signed_certificate.key,
         cert: openssl_self_signed_certificate.cert
     }, app).listen(conf.port + 1);
-    log(chalk.greenBright(`|SERVER| HTTPS enabled at https://${conf.hostname}:${conf.port + 1}/`));
+    console.log(chalk.greenBright(`|SERVER| HTTPS enabled at https://${conf.hostname}:${conf.port + 1}/`));
 });
 
 // LISTEN /MODELS/ FOLDER
