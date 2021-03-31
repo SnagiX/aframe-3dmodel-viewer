@@ -120,90 +120,79 @@ AFRAME.registerComponent('vr-controller', {
     // EVENTS - GENERAL
     // They have not defined in "init"
 
-    onclick: function (e) {
+    onclick: e => {
         
     },
-    clicked: function (e) {
+    clicked: e => {
         
     },
 
     // EVENTS - RAYCASTER
 
-    raycaster_intersected: function (e) {console.log(e);},
-    raycaster_intersected_cleared: function (e) {console.log(e);},
-    raycaster_intersection: function (e) {console.log(e);},
-    raycaster_intersection_cleared: function (e) {console.log(e);},
+    raycaster_intersected: e => {},
+    raycaster_intersected_cleared: e => {},
+    raycaster_intersection: e => {},
+    raycaster_intersection_cleared: e => {},
 
     // EVENTS - OCULUS TOUCH
     // Some of this functions also links to general functions
 
-    oculusTouch_triggerdown: function (e) {
-        console.log(e);
-    },
-    oculusTouch_triggerup: function (e) {console.log(e);},
-    oculusTouch_triggertouchstart: function (e) {console.log(e);},
-    oculusTouch_triggertouchend: function (e) {console.log(e);},
-    oculusTouch_triggerchanged: function (e) {console.log(e);},
-
-    oculusTouch_thumbstickdown: function (e) {console.log(e);},
-    oculusTouch_thumbstickup: function (e) {
-        console.log(e);
-    },
-    oculusTouch_thumbsticktouchstart: function (e) {console.log(e);},
-    oculusTouch_thumbsticktouchend: function (e) {console.log(e);},
-    oculusTouch_thumbstickchanged: function (e) {console.log(e);},
-    oculusTouch_thumbstickmoved: function (e) {
+    oculusTouch_triggerdown: e => {
         
-        let cam = qSelect(["#vr-camera-wrapper"])[0][0];
+    },
+    oculusTouch_triggerup: e => {},
+    oculusTouch_triggertouchstart: e => {},
+    oculusTouch_triggertouchend: e => {},
+    oculusTouch_triggerchanged: e => {},
 
-        let headset_rotation = document.querySelector("#vr-camera").getAttribute("rotation");
-
-        let pos_coords = cam.getAttribute("position");
-
-        // console.log(document.querySelector("#vr-camera").getAttribute("rotation"));
-
-        let new_coords = {
-            x: e.detail.x * vr_config.player_speed + pos_coords.x,
-            y: pos_coords.y,
-            z: e.detail.y * vr_config.player_speed + pos_coords.z
-        }
-
-        cam.setAttribute("position", `${new_coords.x} ${new_coords.y} ${new_coords.z}`);
+    oculusTouch_thumbstickdown: e => {},
+    oculusTouch_thumbstickup: e => {
+        
+    },
+    oculusTouch_thumbsticktouchstart: e => {},
+    oculusTouch_thumbsticktouchend: e => {},
+    oculusTouch_thumbstickchanged: e => {},
+    oculusTouch_thumbstickmoved: e => {
+        
     },
 
-    oculusTouch_gripdown: function (e) {console.log(e);},
-    oculusTouch_gripup: function (e) {console.log(e);},
-    oculusTouch_griptouchstart: function (e) {console.log(e);},
-    oculusTouch_griptouchend: function (e) {console.log(e);},
-    oculusTouch_gripchanged: function (e) {console.log(e);},
+    oculusTouch_gripdown: e => {},
+    oculusTouch_gripup: e => {},
+    oculusTouch_griptouchstart: e => {},
+    oculusTouch_griptouchend: e => {},
+    oculusTouch_gripchanged: e => {},
 
-    oculusTouch_abuttondown: function (e) {console.log(e);},
-    oculusTouch_abuttonup: function (e) {console.log(e);},
-    oculusTouch_abuttontouchstart: function (e) {console.log(e);},
-    oculusTouch_abuttontouchend: function (e) {console.log(e);},
-    oculusTouch_abuttonchanged: function (e) {console.log(e);},
+    oculusTouch_abuttondown: e => {},
+    oculusTouch_abuttonup: e => {},
+    oculusTouch_abuttontouchstart: e => {},
+    oculusTouch_abuttontouchend: e => {},
+    oculusTouch_abuttonchanged: e => {},
 
-    oculusTouch_bbuttondown: function (e) {console.log(e);},
-    oculusTouch_bbuttonup: function (e) {console.log(e);},
-    oculusTouch_bbuttontouchstart: function (e) {console.log(e);},
-    oculusTouch_bbuttontouchend: function (e) {console.log(e);},
-    oculusTouch_bbuttonchanged: function (e) {console.log(e);},
+    oculusTouch_bbuttondown: e => {},
+    oculusTouch_bbuttonup: e => {},
+    oculusTouch_bbuttontouchstart: e => {},
+    oculusTouch_bbuttontouchend: e => {},
+    oculusTouch_bbuttonchanged: e => {},
 
-    oculusTouch_xbuttondown: function (e) {console.log(e);},
-    oculusTouch_xbuttonup: function (e) {console.log(e);},
-    oculusTouch_xbuttontouchstart: function (e) {console.log(e);},
-    oculusTouch_xbuttontouchend: function (e) {console.log(e);},
-    oculusTouch_xbuttonchanged: function (e) {console.log(e);},
+    oculusTouch_xbuttondown: e => {
 
-    oculusTouch_ybuttondown: function (e) {console.log(e);},
-    oculusTouch_ybuttonup: function (e) {console.log(e);},
-    oculusTouch_ybuttontouchstart: function (e) {console.log(e);},
-    oculusTouch_ybuttontouchend: function (e) {console.log(e);},
-    oculusTouch_ybuttonchanged: function (e) {console.log(e);},
+    },
+    oculusTouch_xbuttonup: e => {
 
-    oculusTouch_surfacedown: function (e) {console.log(e);},
-    oculusTouch_surfaceup: function (e) {console.log(e);},
-    oculusTouch_surfacetouchstart: function (e) {console.log(e);},
-    oculusTouch_surfacetouchend: function (e) {console.log(e);},
-    oculusTouch_surfacechanged: function (e) {console.log(e);},
+    },
+    oculusTouch_xbuttontouchstart: e => {},
+    oculusTouch_xbuttontouchend: e => {},
+    oculusTouch_xbuttonchanged: e => {},
+
+    oculusTouch_ybuttondown: e => {},
+    oculusTouch_ybuttonup: e => {},
+    oculusTouch_ybuttontouchstart: e => {},
+    oculusTouch_ybuttontouchend: e => {},
+    oculusTouch_ybuttonchanged: e => {},
+
+    oculusTouch_surfacedown: e => {},
+    oculusTouch_surfaceup: e => {},
+    oculusTouch_surfacetouchstart: e => {},
+    oculusTouch_surfacetouchend: e => {},
+    oculusTouch_surfacechanged: e => {},
 });

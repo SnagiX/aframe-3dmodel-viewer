@@ -4,3 +4,6 @@
 /models/*
 # Exception for demo.gltf of course
 !/models/demo.gltf
+
+
+/tests/

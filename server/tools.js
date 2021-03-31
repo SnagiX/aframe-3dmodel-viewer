@@ -16,6 +16,13 @@ module.exports = {
         switch (input.event) {
             case "add":
                 let file = path.basename(input.path);
+                let execute = false;
+                
+                conf.ext.forEach(extension => {
+                    if (extension == path.parse(file).ext) execute = true;
+                });
+                
+                if (!execute) return models;
 
                 models.push({
                     "title": path.parse(file).name,
