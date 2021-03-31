@@ -15,24 +15,35 @@ html(lang="en")
                             a-asset-item(id=key+"_"+model.title, src="/"+model.local)
 
             //- PLAYER
-            a-entity#vr-camera-wrapper(kinematic-body='' rotation="" position='3 0 3')
-                a-camera#vr-camera
+            a-entity(
+                id="rig"
+                rotation=""
+                position='3 1.6 3'
+                )
+                a-camera(id="vr-camera")
                 a-entity#vr-controllers-wrapper
                     a-entity(laser-controls='hand: left' oculus-touch-controls='hand: left' raycaster='objects: .vr-link; far: 100' haptics='events: raycaster-intersection; dur: 70; force: 0.4' vr-controller='')
                     a-entity(laser-controls='hand: right' oculus-touch-controls='hand: right' raycaster='objects: .vr-link; far: 100' haptics='events: raycaster-intersection; dur: 70; force: 0.4' vr-controller='')
-                a-entity(look-controls='' wasd-controls='acceleration:100' vr-controller='')
+                a-entity(look-controls='' wasd-controls='acceleration:100')
 
 
             //- ENV
 
             a-sky&attributes(add.conf.a_sky)
 
-            - var pos_offset = {"x": 3, "y": 1, "z": 0}
+            - var pos_offset = {"x": 0, "y": 2.2, "z": 1}
 
             a-entity(rotation="0 90 0" position="-3 0 0")
+                a-plane(
+                    width="1000" 
+                    rotation="-90"
+                    height="1000" 
+                    position="0 0 0"
+                    material="src: /dist/textures/asphalt.jpg; repeat: 400 400"
+                )
                 each val, key in add.models
                     a-entity(position=pos_offset.x+" "+(pos_offset.y - 2)+" "+pos_offset.z)
-                        a-cylinder(color='grey' height='0.2' radius='1.5')
+                        a-cylinder(color='grey' height='0.2' radius='1.5' material="src: /dist/textures/marble.jpg;")
                     a-entity(position=pos_offset.x+" "+pos_offset.y+" "+pos_offset.z)
                         
                         case val.ext
