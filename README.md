@@ -25,7 +25,7 @@ You can change `app-config.json`, where are the main settings located.
 ## Notices
 
 - Viewer supports .glb and .gltf extensions only. Of course, you may append other formats in `app-config.json`, but do it on your own risk.
-- Using files with external textures and shaders may cause an error. Please convert complex scenes into .glb format (with `gltf-pipline` tool for example)
+- Using files with external textures and shaders may cause an error. Please convert complex scenes into .glb format (with [gltf-pipline](https://github.com/CesiumGS/gltf-pipeline) tool for example)
 
 ## Supported platforms
 
